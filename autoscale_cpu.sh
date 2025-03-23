@@ -35,6 +35,13 @@ migrate_app() {
   gcloud compute scp --recurse $LOCAL_APP_DIR $INSTANCE_NAME:$REMOTE_APP_DIR \
     --project=$PROJECT_ID \
     --zone=$ZONE
+  echo "Installing dependencies and starting the application..."
+  gcloud compute ssh m23cse006@$VM_NAME --command="
+        sudo apt update &&
+        sudo apt install -y python3 python3-pip &&
+        pip3 install flask &&
+        cd ~/flask_app &&
+        python3 app.py &"
 }
 
 # Main loop to monitor CPU utilization
