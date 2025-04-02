@@ -8,7 +8,7 @@ Implement resource monitoring using Prometheus and Configure auto-scaling po
 - **cpu_load.py :** It is a stress program that increased load on CPU.
 - **prometheus_metrics.py :** It is a monitor that keeps log of cpu utilization and memory utilization in Virtual Machine using Prometheus.
 - **app.py :** A Flask application.
-- **autoscale_cpu.sh :** It is a migration script that migrates application (flask) from local Virtual Machine to a GCP VM.
+- **autoscale_cpu_migration.sh :** It is a migration script that migrates application (flask) from local Virtual Machine to a GCP VM.
 
   
 ### Prometheus is used to monitor CPU and memory utilization on the local VM.
@@ -18,7 +18,6 @@ Implement resource monitoring using Prometheus and Configure auto-scaling po
   - wget https://github.com/prometheus/prometheus/releases/download/v2.30.3/prometheus-2.30.3.linux-amd64.tar.gz
   - tar -xvzf prometheus-2.30.3.linux-arm64.tar.gz
   - cd prometheus-2.30.3.linux-arm64
-  - ./prometheus —config.file=prometheus.yml
 
 
 
@@ -27,7 +26,6 @@ Implement resource monitoring using Prometheus and Configure auto-scaling po
   - wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
   - tar -xvzf node_exporter-1.3.1.linux-arm64.tar.gz
   - cd node_exporter-1.3.1.linux-arm64
-  - ./node_exporter
 
 
 
@@ -57,3 +55,14 @@ Install the Google Cloud SDK on the local VM:
   - sudo apt-get update && sudo apt-get install google-cloud-sdk 
 Authenticate and configure the SDK:
   - gcloud init
+
+
+
+### Simulation Peocess
+- ./prometheus —config.file=prometheus.yml      ( // Make sure you are in _prometheus-2.30.3.linux-arm64_ directory then run the command.)
+- ./node_exporter      ( // Make sure you are in _node_exporter-1.3.1.linux-arm64_ diectory then run the node_exporter script.)
+- python3 prometheus_metrics.py    
+- python3 app.py
+- python3 cpu_load.py
+- chmod +x autoscale_cpu_migration.sh
+- ./autoscale_cpu_migration.sh
