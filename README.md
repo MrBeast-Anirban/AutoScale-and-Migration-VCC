@@ -1,5 +1,5 @@
 # AutoScale-and-Migration-VCC
-Implement resource monitoring using Prometheus and Configure auto-scaling and migration policies from Local Virtual Machine to Google Cloud Platform (GCP) to scale resources when CPU utilization exceeds 75%.
+Implement resource monitoring using Prometheus and Configure auto-scaling and migration policies from Local Virtual Machine to Google Cloud Platform (GCP) to scale resources from Local VM to GCP when CPU utilization in Local Virtual Machine exceeds 75%.
 
 ![Alt text](vcc_assign3.png)
 
