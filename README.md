@@ -45,7 +45,7 @@ A python script that queries CPU utilisation and memory Utilization on Virtual M
 
 
 
-### Autoscaling Policy Configuration and Migration
+### Autoscaling Policy and Migration Configuration 
 We will use Google Cloud Platform (GCP) for auto-scaling.
 Steps:
 - Create a GCP Account:
