@@ -59,6 +59,7 @@ Authenticate and configure the SDK:
 
 
 ### Simulation Peocess
+```
 - ./prometheus —config.file=prometheus.yml      ( // Make sure you are in _prometheus-2.30.3.linux-arm64_ directory then run the command.)
 - ./node_exporter      ( // Make sure you are in _node_exporter-1.3.1.linux-arm64_ diectory then run the node_exporter script.)
 - python3 prometheus_metrics.py    
@@ -66,3 +67,4 @@ Authenticate and configure the SDK:
 - python3 cpu_load.py
 - chmod +x autoscale_cpu_migration.sh
 - ./autoscale_cpu_migration.sh
+```
