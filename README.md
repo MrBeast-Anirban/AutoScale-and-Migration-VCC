@@ -16,7 +16,7 @@ Implement resource monitoring using Prometheus and Configure auto-scaling an
 
 #### Install Prometheus:
 - Download and install Prometheus on the local VM.
-```
+```bash
 wget https://github.com/prometheus/prometheus/releases/download/v2.30.3/prometheus-2.30.3.linux-amd64.tar.gz
 tar -xvzf prometheus-2.30.3.linux-arm64.tar.gz
 cd prometheus-2.30.3.linux-arm64
@@ -25,7 +25,7 @@ cd prometheus-2.30.3.linux-arm64
 
 #### Install Node Exporter:
 - Install Node Exporter to collect system metrics (CPU, memory, disk usage).
-```
+```bash
 wget https://github.com/prometheus/node_exporter/releases/download/v1.3.1/node_exporter-1.3.1.linux-amd64.tar.gz
 tar -xvzf node_exporter-1.3.1.linux-arm64.tar.gz
 cd node_exporter-1.3.1.linux-arm64
@@ -36,7 +36,7 @@ cd node_exporter-1.3.1.linux-arm64
 
 - Configure Prometheus to scrape metrics from Node Exporter.
 - Edit prometheus.yml to scrape metrics from Node Exporter: scrape_configs:
-```
+```yml
 job_name: 'node'
   static_configs:
     targets: ['localhost:9100']
@@ -54,20 +54,20 @@ Steps:
 - Set Up a GCP Project:
   - Create a new project in the GCP Console.
 - Install Google Cloud SDK on the local VM:
-```
+```bash
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 sudo apt-get install apt-transport-https ca-certificates gnupg
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install google-cloud-sdk 
 ```
 Authenticate and configure the SDK:
-```
+```bash
 gcloud init
 ```
 
 
 ### Simulation Peocess
-```
+```sh
 ./prometheus —config.file=prometheus.yml      ( // Make sure you are in _prometheus-2.30.3.linux-arm64_ directory then run the command.)
 ./node_exporter      ( // Make sure you are in _node_exporter-1.3.1.linux-arm64_ diectory then run the node_exporter script.)
 python3 prometheus_metrics.py    
