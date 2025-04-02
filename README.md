@@ -8,7 +8,7 @@ Implement resource monitoring using Prometheus and Configure auto-scaling an
 - **cpu_load.py :** It is a stress program that increased load on CPU.
 - **prometheus_metrics.py :** It is a monitor that keeps log of cpu utilization and memory utilization in Virtual Machine using Prometheus.
 - **app.py :** A Flask application.
-- **autoscale_cpu_migration.sh :** It is a migration script that migrates application (flask) from local Virtual Machine to a GCP VM.
+- **autoscale_cpu.sh :** It is a monitoring, scaline and migration script that monitors cpu utilization and scales to gcp when cpu utilization >75% and migrates application (flask) from local Virtual Machine to a GCP VM Instance.
 
   
 ### Prometheus is used to monitor CPU and memory utilization on the local VM.
@@ -72,6 +72,6 @@ gcloud init
 python3 prometheus_metrics.py    
 python3 app.py
 python3 cpu_load.py
-chmod +x autoscale_cpu_migration.sh
-./autoscale_cpu_migration.sh
+chmod +x autoscale_cpu.sh
+./autoscale_cpu.sh
 ```
