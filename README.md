@@ -4,6 +4,7 @@ Implement resource monitoring using Prometheus and Configure auto-scaling an
 ![Alt text](vcc_assign3.png)
 
 
+### About the Files in Repository :
 
 - **cpu_load.py :** It is a stress program that increased load on CPU.
 - **prometheus_metrics.py :** It is a monitor that keeps log of cpu utilization and memory utilization in Virtual Machine using Prometheus.
